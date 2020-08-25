@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smoge/ui/home/animated_percentage_widget.dart';
+import 'package:smoge/ui/home/animated_percentage_widget.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -18,15 +20,32 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             _buildTitle(),
+            _buildAirPollutionContent(),
           ],
         ),
       ),
     );
   }
 
+
+  Widget _buildAirPollutionContent() => Expanded(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        AnimatedPercentageWidget(
+          fromValue: 0,
+          toValue: 310,
+        ),
+        Text("norm"),
+      ],
+    ),
+  );
+
+
   Widget _buildTitle() => Text(
-    "Safe Area",
+    "Ravenclaw",
     textAlign: TextAlign.center,
   );
+
 
 }
